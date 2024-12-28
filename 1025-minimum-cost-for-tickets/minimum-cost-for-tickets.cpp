@@ -1,4 +1,3 @@
-//https://www.youtube.com/watch?v=oZ_xAIGCXw4
 class Solution {
 public:
  int solvedp(int n, vector<int>& days, vector<int>& cost, int index, vector<int>& dp) {
