@@ -10,11 +10,13 @@ public:
         int totalSum = 0;
         for(int length= 1; length <=n; length+=2){
             for(int start =0; start+length <= n; ++start){
-                int end = start + length - 1;
-                if(start > 0){
-                    totalSum+=prefix[end]-prefix[start - 1];
-                } else {
-                    totalSum+=prefix[end];
+                int end=start+length-1;
+                if(start>0){
+                    totalSum+=prefix[end]-prefix[start-1];
+                }
+                else{
+                   totalSum+=prefix[end];
+
                 }
             }
         }
