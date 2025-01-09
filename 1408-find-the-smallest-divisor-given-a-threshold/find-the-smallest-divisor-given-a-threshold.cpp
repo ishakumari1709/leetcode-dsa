@@ -15,13 +15,13 @@ public:
         int n=nums.size()-1;
         int end=*max_element(nums.begin(),nums.end());
         int mid;
-         int result=end;
+        
 
         while(start<=end){
             mid=(start+end)/2;
            
             if(isPossible(nums,mid,threshold)){
-                result=mid;
+               
                 end=mid-1;
             }
             else{
@@ -30,7 +30,7 @@ public:
             
             
         }
-        return result;
+        return start;
         
     }
 };
