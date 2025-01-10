@@ -1,9 +1,9 @@
 class Solution {
     private: bool isPossible(vector<int> nums, int maxOperations,int mid ){
         for(int num: nums){
-            maxOperations-=(num-1)/mid;
+            maxOperations -= (num-1)/mid;
         }
-         return maxOperations>=0;
+         return maxOperations >= 0;
     }
     
 public:
