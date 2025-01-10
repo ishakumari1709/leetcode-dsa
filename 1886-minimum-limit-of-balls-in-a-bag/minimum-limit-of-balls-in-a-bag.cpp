@@ -9,9 +9,8 @@ public:
     int minimumSize(vector<int>& nums, int maxOperations) {
         int start=1;
         int end=*max_element(nums.begin(),nums.end());
-        int mid;
         while(start<=end){
-            mid=(start+end)/2;
+            int mid=(start+end)/2;
             if(isPossible(nums,maxOperations,mid)){
                 end=mid-1;
             }
