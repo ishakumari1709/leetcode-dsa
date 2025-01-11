@@ -4,7 +4,7 @@ class Solution {
         for(long long battery:batteries){
             sum+=min(battery,mid);
         }
-        return sum>=mid*n;
+        return sum>=n*mid;
 
     }
 public:
@@ -27,6 +27,6 @@ public:
             }         
         }
        return end;  
-             
+
     }
 };
