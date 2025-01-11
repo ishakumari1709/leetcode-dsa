@@ -1,13 +1,4 @@
 class Solution {
-private:
-    bool isPossible(int n, vector<int> batteries, long long mid) {
-        long long sum = 0;
-        for (long long battery : batteries) {
-            sum += min(battery, mid);
-        }
-        return sum >= n * mid;
-    }
-
 public:
     long long maxRunTime(int n, vector<int>& batteries) {
         long long start = *min_element(batteries.begin(), batteries.end());
@@ -16,10 +7,14 @@ public:
         for (long long battery : batteries) {
             end += battery;
         }
-
+        end/=n;
         while (start <= end) {
             mid = (start + end) / 2;
-            if (isPossible(n, batteries, mid)) {
+            long long sum = 0;
+            for (long long battery : batteries) {
+                sum += min(battery, mid);
+            }
+            if (sum >= n * mid) {
                 start = mid + 1;
             } else {
                 end = mid - 1;
