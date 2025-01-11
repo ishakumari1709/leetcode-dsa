@@ -10,8 +10,8 @@ class Solution {
 public:
     long long maxRunTime(int n, vector<int>& batteries) {
         long long start=*min_element(batteries.begin(),batteries.end());
-        long long end=0;
         long long mid;
+        long long end=0;
         for(long long battery: batteries){
             end+=battery;
         }
