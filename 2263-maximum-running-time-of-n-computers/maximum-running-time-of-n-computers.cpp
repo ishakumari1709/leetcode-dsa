@@ -1,5 +1,6 @@
 class Solution {
-    private: bool isPossible(int n,vector<int> batteries, long long mid){
+    private:
+    bool isPossible(int n,vector<int> batteries, long long mid){
         long long sum=0;
         for(long long battery:batteries){
             sum+=min(battery,mid);
