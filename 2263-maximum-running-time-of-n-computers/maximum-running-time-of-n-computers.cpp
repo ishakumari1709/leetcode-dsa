@@ -5,6 +5,7 @@ class Solution {
             sum+=min(battery,mid);
         }
         return sum>=mid*n;
+
     }
 public:
     long long maxRunTime(int n, vector<int>& batteries) {
@@ -13,7 +14,9 @@ public:
         for(long long battery: batteries){
             end+=battery;
         }
+
        long long mid;
+
         while(start<=end){
             mid=(start+end)/2;
             if(isPossible(batteries,mid,n)){
@@ -23,6 +26,7 @@ public:
                 end=mid-1;
             }         
         }
-       return end;        
+       return end;  
+             
     }
 };
