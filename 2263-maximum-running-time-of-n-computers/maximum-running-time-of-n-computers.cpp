@@ -13,8 +13,7 @@ public:
         for(long long battery: batteries){
             end+=battery;
         }
-
-        long long mid;
+       long long mid;
         while(start<=end){
             mid=(start+end)/2;
             if(isPossible(batteries,mid,n)){
@@ -22,11 +21,8 @@ public:
             }
             else{
                 end=mid-1;
-            }
-
-            
+            }         
         }
-       return end; 
-        
+       return end;        
     }
 };
