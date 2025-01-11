@@ -1,5 +1,5 @@
 class Solution {
-    private: bool isPossible(vector<int> batteries, long long mid,int n){
+    private: bool isPossible(int n,vector<int> batteries, long long mid){
         long long sum=0;
         for(long long battery:batteries){
             sum+=min(battery,mid);
@@ -19,7 +19,7 @@ public:
 
         while(start<=end){
             mid=(start+end)/2;
-            if(isPossible(batteries,mid,n)){
+            if(isPossible(n,batteries,mid)){
                 start=mid+1;
             }
             else{
