@@ -4,18 +4,19 @@ public:
         int n=s.size();
         int start=0;
         int end=0;
-        int maxLength=0;
-        while(end<s.size()){
-            int cost =abs(s[end]-t[end]);
-            maxCost-=cost;// Calculate the cost to change s[end] to t[end]
-            while(maxCost<0){ // If maxCost becomes negative, shrink the window from the start
+        int maxL=0;
+       
+        while(end<n){
+            maxCost-=abs(s[end]-t[end]);
+            while(maxCost<0){
+                
                 maxCost+=abs(s[start]-t[start]);
-                start++;// Move the start pointer forward
+                start++;
 
             }
-            maxLength=max(maxLength,(end-start+1));
-            end++; // Expand the window by moving end pointer
+            maxL=max(maxL,end-start+1);
+            end++;
         }
-        return maxLength;
+        return maxL;
     }
 };
