@@ -16,9 +16,9 @@ public:
 
             if (count > 1) {
                 string count_str = to_string(count);
-                for (char c : count_str) {
-                    result.push_back(c);
-                }
+                for (int i = 0; i < count_str.length(); i++) { // if count_str is 12 so it divides in 1,2
+                   result.push_back(count_str[i]);
+                }        
             }
         }
         for (int j = 0; j < result.size(); j++) {
