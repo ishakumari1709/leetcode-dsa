@@ -7,29 +7,24 @@ class Solution {
             }
         }
         return count;
-
     }
 public:
     int specialArray(vector<int>& nums) {
         int start=0;
-       int  end=nums.size();
-       
-     
+        int end=nums.size();
         while(start<=end){
             int mid=(start+end)/2;
             int ans=countA(nums,mid);
             if(ans==mid){
                 return mid;
             }
-           else if(ans>mid){
-                start=mid+1;
-                
-            }
-            else{
+            if(mid>ans){
                 end=mid-1;
+            }else{
+                start=mid+1;
             }
+          
         }
         return -1;
-        
     }
 };
