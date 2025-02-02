@@ -14,6 +14,5 @@ public:
             result=min(result,maxx-minn);
         }
         return result;
-        
     }
 };
