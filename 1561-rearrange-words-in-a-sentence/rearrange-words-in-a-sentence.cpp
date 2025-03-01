@@ -15,7 +15,7 @@ public:
        }
        words.push_back({word,index}); //to add last word
         stable_sort(words.begin(), words.end(), [](const pair<string, int>& a, const pair<string, int>& b) {
-    return a.first.length() < b.first.length();
+    return a.first.length() < b.first.length(); //maintain the original order of words with the same length
 });
 
         string result;
