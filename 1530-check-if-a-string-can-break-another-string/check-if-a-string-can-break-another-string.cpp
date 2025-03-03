@@ -14,15 +14,6 @@ public:
                s2flag =false;  
             }
         }
-        
-            
-
-        
-
-
-                
-
-        
         if(s1flag==true || s2flag==true) {
             return true;
         } else{
