@@ -10,7 +10,7 @@ public:
             int required=target-nums[i];
             newArray.push_back(newM[required]); 
             newArray.push_back(i);
-                return newArray; 
+               
             }
             newM[nums[i]] = i;
             }
