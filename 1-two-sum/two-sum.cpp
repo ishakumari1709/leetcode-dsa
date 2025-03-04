@@ -7,9 +7,8 @@ public:
         for(int i=0;i<nums.size();i++){
             int required=target-nums[i];
             if(newM.find(required)!=newM.end()){
-            int required=target-nums[i];
-            newArray.push_back(newM[required]); 
-            newArray.push_back(i);
+              newArray.push_back(newM[required]); 
+              newArray.push_back(i);
                
             }
             newM[nums[i]] = i;
