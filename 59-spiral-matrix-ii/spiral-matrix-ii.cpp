@@ -1,36 +1,38 @@
 class Solution {
 public:
     vector<vector<int>> generateMatrix(int n) {
-        int r1=0;
-        int c1=0;
-        int r2=n-1;
-        int c2=n-1;
-        int count=1;
-        
-        vector<vector<int>> matrix(n, vector<int>(n, 0));
-        while(r1<=r2 && c1<=c2){ //o(n)
-            for(int c=c1;c<=c2;c++){
-                matrix[r1][c]=count++; //o(n)
+        vector<vector<int>> mat (n,vector<int>(n,0));
+        int top=0;
+        int bottom=n-1;
+        int left=0;
+        int right=n-1;
+        int value=1;
+        while(left<=right && top<=bottom){
+            for(int i=left;i<=right;i++){
+                mat[top][i]=value++;
             }
-            for(int r=r1+1;r<=r2;r++){
-                matrix[r][c2]=count++;//o(m)
+            top++;
+            for(int i=top;i<=bottom;i++){
+                mat[i][right]=value++;
             }
-            if(r1<r2 && c1<c2){
-                for(int c=c2-1;c>=c1;c--){
-                    matrix[r2][c]=count++; //o(n)
-                }
-                for(int r=r2-1;r>r1;r--){
-                    matrix[r][c1]=count++; //o(m)
-                }
-            } //o(n+m+n+m)
-            r1++;
-            c1++;
-            r2--;
-            c2--;
-        }
-        return matrix;
-        
+            right--;
+            if(top<=bottom){ //move right to left
+            for(int i=right;i>=left;i--){
+                mat[bottom][i]=value++;
+            }
+            bottom--;
+            }
+            if(left<=right){ //move top to bottom
+            for(int i=bottom;i>=top;i--){
+                mat[i][left]=value++;
+            }
+            left++;
+            }
 
-        
+            
+             
+
+        }
+        return mat;
     }
 };
