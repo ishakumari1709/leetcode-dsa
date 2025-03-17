@@ -1,24 +1,19 @@
 class Solution {
 public:
     int waysToSplitArray(vector<int>& nums) {
-         int n = nums.size();
-        long long totalSum = 0;
-        long long leftSum = 0;
-        int validSplits = 0;
-
-        for (int i = 0; i < n; i++) {
-            totalSum += nums[i];
+        int n=nums.size();
+        vector<long long> prefixSum(n,0);
+        prefixSum[0]=nums[0];
+        for(int i=1;i<n;i++){
+            prefixSum[i]=prefixSum[i-1]+nums[i];
         }
-
-        for (int i = 0; i < n - 1; i++) {
-            leftSum += nums[i];
-            long long rightSum = totalSum - leftSum;
-            if (leftSum >= rightSum) {
-                validSplits++;
+        int count=0;
+        for(int i=0;i<n-1;i++){
+            if(prefixSum[i]>=prefixSum[n-1]-prefixSum[i]){
+                count++;
             }
         }
+        return count;
 
-        return validSplits;
-        
     }
 };
