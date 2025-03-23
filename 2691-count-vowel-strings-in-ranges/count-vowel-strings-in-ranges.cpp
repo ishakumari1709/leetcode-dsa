@@ -2,20 +2,27 @@ class Solution {
 public:
     vector<int> vowelStrings(vector<string>& words, vector<vector<int>>& queries) {
         int n=words.size();
-        vector<int> Prefix(n + 1, 0);
-        unordered_set<char> vowels = {'a', 'e', 'i', 'o', 'u'};
-        for(int i=0;i<n;i++){
-            Prefix[i + 1] = Prefix[i];
-            if(vowels.count(words[i].front()) && vowels.count(words[i].back())){
-               Prefix[i+1]++;
-            }
+        vector<int> prefixSum(n+1,0);
+        vector<int> vowel(n,0);
+        vector<int> result(queries.size(),0);
+        unordered_set<char> isVowel = {'a', 'e', 'i', 'o', 'u'};
+       for(int i=0;i<n;i++){
+        if(isVowel.count(words[i].front()) && isVowel.count(words[i].back())){
+            vowel[i]=1;
+        }else{
+            vowel[i]=0;
         }
-        vector<int> ans(queries.size(), 0);
-        for (int j = 0; j < queries.size(); j++) {
-            int left = queries[j][0];
-            int right = queries[j][1];
-            ans[j] = Prefix[right + 1] - Prefix[left];
-        }
-        return ans;
+       }
+       for(int i=1;i<=n;i++){
+         prefixSum[i]=prefixSum[i-1]+vowel[i-1];
+       }
+       for(int i=0;i<queries.size();i++){
+            int left=queries[i][0];
+            int right=queries[i][1];
+            result[i]=prefixSum[right+1]-prefixSum[left];
+
+       }
+       return result;
+        
     }
 };
