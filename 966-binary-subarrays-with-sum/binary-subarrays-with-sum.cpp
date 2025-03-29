@@ -1,5 +1,5 @@
 class Solution {
-    private: int helper(vector<int> & nums,int goal){
+    private: int helper(vector<int>& nums, int goal){
         if(goal<0) return 0;
         int start=0;
         int end=0;
@@ -21,5 +21,7 @@ class Solution {
 public:
     int numSubarraysWithSum(vector<int>& nums, int goal) {
         return helper(nums,goal)-helper(nums,goal-1);
+
+        
     }
 };
