@@ -1,26 +1,24 @@
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        unordered_map<int,int> map;
-        for(int i=0;i<arr.size();i++){
-            map[arr[i]]++;
-        }
-        vector<int> count;
-        for(auto &pair: map){
-            count.push_back(pair.second);
-        }
-        sort(count.rbegin(),count.rend());
-        int removed=0;
-        int size=0;
-        int half=arr.size()/2;
-        for(int i=0;i<arr.size();i++){
-            removed+=count[i];
-            size++;
-            if(removed>=half){
-                break;
-            }
-        }
+        unordered_map<int, int> freq;
+    for (int num : arr)
+        freq[num]++;
 
-        return size;
+    vector<int> counts;
+    for (auto& pair : freq)
+        counts.push_back(pair.second);
+
+    sort(counts.rbegin(), counts.rend());  // sort in descending order
+
+    int removed = 0, half = arr.size() / 2, setSize = 0;
+    for (int count : counts) {
+        removed += count;
+        setSize++;
+        if (removed >= half)
+            break;
+    }
+
+    return setSize;
     }
 };
