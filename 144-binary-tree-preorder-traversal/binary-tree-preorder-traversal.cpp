@@ -20,7 +20,7 @@ public:
     }
 
 private:
-    void preorder(TreeNode* node, std::vector<int>& res) {
+    void preorder(TreeNode* node, vector<int>& res) {
         if (node == nullptr) {
             return;
         }
